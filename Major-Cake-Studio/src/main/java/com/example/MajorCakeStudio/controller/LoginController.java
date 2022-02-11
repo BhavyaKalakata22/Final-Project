@@ -41,6 +41,7 @@ public class LoginController {
 
     @GetMapping("/register")
     public String registerGet(){
+
         return "register";
     }
 

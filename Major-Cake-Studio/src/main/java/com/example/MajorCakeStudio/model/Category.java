@@ -12,6 +12,5 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "category_id")
     private long id;
-
     private String name;
 }

@@ -3850,3 +3850,24 @@ Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/Users/bha
 	at org.h2.mvstore.FileStore.open(FileStore.java:172)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:381)
 	... 66 more
+2022-02-11 07:47:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION VARCHAR(255)": "'Get your sweet dose of a rich and premium chocolatey affair with these delicious Cupcakes meant to make celebrations better and... (261)"; SQL statement:
+insert into product (category_id, description, image_name, name, price, weight, id) values (?, ?, ?, ?, ?, ?, ?) [22001-200]
+2022-02-11 07:47:42 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION VARCHAR(255)": "'Get your sweet dose of a rich and premium chocolatey affair with these delicious Cupcakes meant to make celebrations better and... (261)"; SQL statement:
+insert into product (category_id, description, image_name, name, price, weight, id) values (?, ?, ?, ?, ?, ?, ?) [22001-200]
+2022-02-11 07:48:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION VARCHAR(255)": "'Get your sweet dose of a rich and premium chocolatey affair with these delicious Cupcakes meant to make celebrations better and... (261)"; SQL statement:
+insert into product (category_id, description, image_name, name, price, weight, id) values (?, ?, ?, ?, ?, ?, ?) [22001-200]
+2022-02-11 07:48:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION VARCHAR(255)": "'Get your sweet dose of a rich and premium chocolatey affair with these delicious Cupcakes meant to make celebrations better and... (261)"; SQL statement:
+insert into product (category_id, description, image_name, name, price, weight, id) values (?, ?, ?, ?, ?, ?, ?) [22001-200]
+2022-02-11 07:52:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION VARCHAR(255)": "'Get your sweet dose of a rich and premium chocolatey affair with these delicious Cupcakes meant to make celebrations better and... (261)"; SQL statement:
+insert into product (category_id, description, image_name, name, price, weight, id) values (?, ?, ?, ?, ?, ?, ?) [22001-200]
+2022-02-11 07:52:43 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION VARCHAR(255)": "'Get your sweet dose of a rich and premium chocolatey affair with these delicious Cupcakes meant to make celebrations better and... (261)"; SQL statement:
+insert into product (category_id, description, image_name, name, price, weight, id) values (?, ?, ?, ?, ?, ?, ?) [22001-200]
+2022-02-11 10:38:33 jdbc[23]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION VARCHAR(255)": "'Sending cakes on anniversaries is always held to be very special. Keeping this gifting trend in view, we have brought a unique ... (315)"; SQL statement:
+insert into product (category_id, description, image_name, name, price, weight, id) values (?, ?, ?, ?, ?, ?, ?) [22001-200]

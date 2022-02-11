@@ -59,11 +59,11 @@ public class AdminController {
     public String deleteCategory(@PathVariable long id){
 
         categoryService.removeCategoryById(id);
-        return "redirect:/admin/categories";
+       return "redirect:/admin/categories";
     }
 
     @GetMapping("/admin/categories/update/{id}")
-    public String updateCategory(@PathVariable long id,Model model){
+     public String updateCategory(@PathVariable long id,Model model){
 
         Optional<Category> category = categoryService.getCategoryById(id);
         if(category.isPresent()){
