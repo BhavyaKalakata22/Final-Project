@@ -3871,3 +3871,6 @@ insert into product (category_id, description, image_name, name, price, weight, 
 2022-02-11 10:38:33 jdbc[23]: exception
 org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION VARCHAR(255)": "'Sending cakes on anniversaries is always held to be very special. Keeping this gifting trend in view, we have brought a unique ... (315)"; SQL statement:
 insert into product (category_id, description, image_name, name, price, weight, id) values (?, ?, ?, ?, ?, ?, ?) [22001-200]
+2022-02-13 12:55:35 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE *[*] FROM USER_ROLE"; expected "identifier"; SQL statement:
+DELETE * FROM USER_ROLE [42001-200]

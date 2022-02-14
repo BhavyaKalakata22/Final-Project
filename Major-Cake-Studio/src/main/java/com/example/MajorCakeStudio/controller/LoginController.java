@@ -13,11 +13,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class LoginController {
@@ -37,6 +40,15 @@ public class LoginController {
         // clearing cart when user clicks login
         GlobalDat.cart.clear();
         return "login";
+    }
+    @GetMapping("/success")
+    public String login(Principal principal){
+        Optional<User> user = userRepository.findUserByEmail(principal.getName());
+        if(user.get().getEmail().contains("admin")){
+            return "redirect:/admin";
+        }else{
+            return "redirect:/";
+        }
     }
 
     @GetMapping("/register")
@@ -61,5 +73,20 @@ public class LoginController {
 
         return "redirect:/";
 
+    }
+    @RequestMapping("/userProfile")
+    public String showUserProfile() {
+        return "userProfile";
+    }
+
+    @GetMapping("/updateProfile")
+    public String updateUser(){
+
+        return "updateProfile";
+    }
+
+    @GetMapping("/error")
+    public String errorInLogin(){
+        return "errorPage";
     }
 }

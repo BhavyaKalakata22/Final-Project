@@ -5,6 +5,7 @@ import lombok.Data;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
@@ -26,10 +27,10 @@ public class User {
     @Column(nullable = false,unique = true)
     @Email(message = "{errors.invalid_email}")
     private String email;
-
+    @Size(message = "Password cannot be less than 6 letters")
     private String password;
 
-    @ManyToMany(cascade = CascadeType.MERGE,fetch = FetchType.LAZY)
+    @ManyToMany(cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
     @JoinTable(
             name = "user_role",
             joinColumns = {@JoinColumn(name = "USER_ID",referencedColumnName ="ID")},

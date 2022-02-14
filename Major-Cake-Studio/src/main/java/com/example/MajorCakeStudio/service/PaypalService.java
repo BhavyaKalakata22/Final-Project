@@ -1,4 +1,5 @@
 /*
+
 package com.example.MajorCakeStudio.service;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -7,6 +8,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.paypal.api.payments.Amount;
 import com.paypal.api.payments.Payer;
 import com.paypal.api.payments.Payment;
@@ -22,11 +24,12 @@ public class PaypalService {
     @Autowired
     private APIContext apiContext;
 
+
     public Payment createPayment(
             Double total,
             String currency,
-            PaypalPaymentMethod method,
-            PaypalPaymentIntent intent,
+            String method,
+            String intent,
             String description,
             String cancelUrl,
             String successUrl) throws PayPalRESTException{
@@ -64,8 +67,7 @@ public class PaypalService {
         paymentExecute.setPayerId(payerId);
         return payment.execute(apiContext, paymentExecute);
     }
+
 }
 
-public class PaypalService {
-}
 */
