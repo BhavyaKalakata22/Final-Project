@@ -1,4 +1,3 @@
-/*
 
 package com.example.MajorCakeStudio.configuration;
 import java.util.HashMap;
@@ -44,4 +43,3 @@ public class PaypalConfig {
 
 }
 
-*/

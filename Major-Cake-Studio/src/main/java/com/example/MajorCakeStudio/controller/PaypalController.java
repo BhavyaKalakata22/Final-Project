@@ -1,6 +1,7 @@
-/*
 package com.example.MajorCakeStudio.controller;
 
+import com.example.MajorCakeStudio.model.Order;
+import com.example.MajorCakeStudio.service.PaypalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,8 +31,8 @@ public class PaypalController {
     public String payment(@ModelAttribute("order") Order order) {
         try {
             Payment payment = service.createPayment(order.getPrice(), order.getCurrency(), order.getMethod(),
-                    order.getIntent(), order.getDescription(), "http://localhost:9090/" + CANCEL_URL,
-                    "http://localhost:9090/" + SUCCESS_URL);
+                    order.getIntent(), order.getDescription(), "http://localhost:8055/" + CANCEL_URL,
+                    "http://localhost:8055/" + SUCCESS_URL);
             for(Links link:payment.getLinks()) {
                 if(link.getRel().equals("approval_url")) {
                     return "redirect:"+link.getHref();
@@ -64,4 +65,4 @@ public class PaypalController {
         return "redirect:/";
     }
 
-}*/
+}

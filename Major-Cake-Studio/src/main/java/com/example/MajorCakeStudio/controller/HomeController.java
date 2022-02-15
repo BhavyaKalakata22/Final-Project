@@ -1,7 +1,4 @@
 package com.example.MajorCakeStudio.controller;
-
-
-
 import com.example.MajorCakeStudio.global.GlobalDat;
 import com.example.MajorCakeStudio.service.CategoryService;
 import com.example.MajorCakeStudio.service.ProductService;

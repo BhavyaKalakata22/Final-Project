@@ -5,32 +5,18 @@ package com.example.MajorCakeStudio.controller;
 
 import com.example.MajorCakeStudio.global.GlobalDat;
 import com.example.MajorCakeStudio.model.Product;
-import com.example.MajorCakeStudio.repository.UserRepository;
-import com.example.MajorCakeStudio.service.CartItemService;
-import com.example.MajorCakeStudio.service.OrderService;
 import com.example.MajorCakeStudio.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class CartController {
+
     @Autowired
     ProductService productService;
-
-    @Autowired
-    CartItemService cartItemService;
-
-    @Autowired
-    OrderService orderService;
-
-    @Autowired
-    UserRepository userRepository;
-
-
 
     @GetMapping("/addToCart/{id}")
     public String addToCart(@PathVariable long id){
@@ -61,11 +47,9 @@ public class CartController {
         model.addAttribute("total",GlobalDat.cart.stream().mapToDouble(Product::getPrice).sum());
         return "checkout";
     }
-    @PostMapping("/payNow")
+    @GetMapping("/payNow")
     public String payNow(Model model){
         //model.addAttribute("total",GlobalDat.cart.stream().mapToDouble(Product::getPrice).sum());
-        System.out.println("Payment Success");
         return "checkout";
     }
-
 }

@@ -1,4 +1,3 @@
-/*
 
 package com.example.MajorCakeStudio.service;
 import java.math.BigDecimal;
@@ -70,4 +69,3 @@ public class PaypalService {
 
 }
 
-*/

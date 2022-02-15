@@ -1,4 +1,3 @@
-/*
 package com.example.MajorCakeStudio.util;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,4 +21,4 @@ public class URLUtils {
         return url.toString();
     }
 
-}*/
+}

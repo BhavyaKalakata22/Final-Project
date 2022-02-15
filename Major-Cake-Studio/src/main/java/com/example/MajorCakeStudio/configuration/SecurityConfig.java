@@ -4,6 +4,8 @@ import com.example.MajorCakeStudio.service.CustomUserDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.CachingUserDetailsService;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -15,33 +17,33 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-
     @Autowired
-    GoogleOAuth2SuccessHandler googleOAuthSuccessHandler;
-
+    GoogleOAuth2SuccessHandler googleOAuth2SuccessHandler;
     @Autowired
     CustomUserDetailService customUserDetailService;
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
         http
                 .authorizeRequests()
-                .antMatchers("/","/shop/**","/register","/h2-console/**").permitAll()
-                .antMatchers("/admin/**").hasAnyRole("ADMIN")
+                .antMatchers("/", "/shop/**", "forgotPassword", "/register", "/h2-console/**","/userProfile/*")
+                .permitAll()
+                .antMatchers("/viewProduct/**")
+                .permitAll()
+                .antMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest()
                 .authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
                 .permitAll()
-                .failureUrl("/login?error=true")
+                .failureUrl("/login?error= true")
                 .defaultSuccessUrl("/")
                 .usernameParameter("email")
                 .passwordParameter("password")
                 .and()
                 .oauth2Login()
                 .loginPage("/login")
-                .successHandler(googleOAuthSuccessHandler)
+                .successHandler(googleOAuth2SuccessHandler)
                 .and()
                 .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
@@ -53,12 +55,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .csrf()
                 .disable();
-
         http.headers().frameOptions().disable();
-    }
 
+    }
     @Bean
-    public BCryptPasswordEncoder bCryptPasswordEncoder(){
+    public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
@@ -69,6 +70,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/resources/**","/static/**","/images/**","/productImages/**","/css/**","/js/**");
+        web.ignoring().antMatchers("/resources/**", "/static/**", "/images/**", "/productImages/**", "/css/**", "/js/**");
     }
 }
+
+
