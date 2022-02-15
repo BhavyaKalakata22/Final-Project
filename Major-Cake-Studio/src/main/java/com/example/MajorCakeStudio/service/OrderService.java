@@ -16,8 +16,8 @@ public class OrderService {
 
         return orderRepository.save(order);
     }
-   /* public List<MyOrder> listOrderHistory(Integer id){
+    public List<MyOrder> listOrderHistory(Integer id){
 
-      //  return  orderRepository.findByUserId(id);
-    }*/
+        return  orderRepository.findByUserId(id);
+    }
 }

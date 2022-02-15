@@ -78,23 +78,17 @@ public class LoginController {
     public String showUserProfile() {
         return "userProfile";
     }
-    @RequestMapping("/Myorders")
-public String orders()
-    {
-        return "Myorders";
-    }
+
+
     @GetMapping("/updateProfile")
     public String updateUser(){
         return "updateProfile";
-    }
-    @GetMapping("/pay")
-    public String pay(){
-        return "PaymentSuccess";
     }
 
 
     @GetMapping("/error")
     public String errorInLogin(){
+
         return "errorPage";
     }
 }

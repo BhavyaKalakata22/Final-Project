@@ -11,7 +11,9 @@ import com.paypal.api.payments.PaymentHistory;
 import com.paypal.base.rest.APIContext;
 import com.paypal.base.rest.OAuthTokenCredential;
 import com.paypal.base.rest.PayPalRESTException;
+import org.springframework.stereotype.Component;
 
+@Component
 @Configuration
 public class PaypalConfig {
 

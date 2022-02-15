@@ -16,12 +16,18 @@ public class HomeController {
 
     @Autowired
     ProductService productService;
-
-    @GetMapping({"/","/home"})
-    public String home(Model model){
+    @GetMapping("/")
+    public String home1(Model model){
         model.addAttribute("cartCount", GlobalDat.cart.size());
         return "index";
     }
+
+    @GetMapping("/home")
+    public String home(Model model){
+        model.addAttribute("cartCount", GlobalDat.cart.size());
+        return "home";
+    }
+
 
     @GetMapping("/shop")
     public String shop(Model model){
@@ -50,6 +56,7 @@ public class HomeController {
         model.addAttribute("product",productService.getProductById(id).get());
         return "viewproduct";
     }
+
 
 
 }
