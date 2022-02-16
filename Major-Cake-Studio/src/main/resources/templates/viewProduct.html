@@ -41,7 +41,7 @@ body {
                     <a class="nav-link" th:href="@{/}" href="#">home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/Myorders}" href="#">MyOrders</a>
+                    <a class="nav-link" th:href="@{/myorders}" href="#">MyOrders</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" th:href="@{/shop}" href="#">shop</a>
@@ -56,7 +56,7 @@ body {
                     <a class="nav-link" th:href="@{/cart}" href="#">cart</a>
                 </li>
                 <li class="nav-item active">
-                    <span class="nav-link" th:text="${cartCount}"></span>
+                    <span class="nav-link" th:text="${cartCount}">0</span>
                 </li>
             </ul>
 

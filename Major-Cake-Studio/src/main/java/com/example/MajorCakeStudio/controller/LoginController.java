@@ -2,7 +2,7 @@
 package com.example.MajorCakeStudio.controller;
 
 
-import com.example.MajorCakeStudio.global.GlobalDat;
+//import com.example.MajorCakeStudio.global.GlobalDat;
 import com.example.MajorCakeStudio.model.Role;
 import com.example.MajorCakeStudio.model.User;
 import com.example.MajorCakeStudio.repository.RoleRepository;
@@ -38,7 +38,7 @@ public class LoginController {
     public String login(){
 
         // clearing cart when user clicks login
-        GlobalDat.cart.clear();
+       // GlobalDat.cart.clear();
         return "login";
     }
     @GetMapping("/success")
@@ -85,10 +85,15 @@ public class LoginController {
         return "updateProfile";
     }
 
+    @RequestMapping("/forgotpassword")
+      public String forgetpass()
+        {
+    return "forgotpassword";
+        }
 
-    @GetMapping("/error")
+   /* @GetMapping("/error")
     public String errorInLogin(){
 
         return "errorPage";
-    }
+    }*/
 }

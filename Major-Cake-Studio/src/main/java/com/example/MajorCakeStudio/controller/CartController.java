@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.security.Principal;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Controller
@@ -58,10 +59,10 @@ public class CartController {
     @RequestMapping("/myorders")
     public String showOrderHistory(Principal principal, Model model){
         Optional<User> user = userRepository.findUserByEmail(principal.getName());
-        if (user.isPresent()){
+        if (!(Objects.isNull((user)))){
             List<MyOrder> myOrders = orderService.listOrderHistory(user.get().getId());
             model.addAttribute("order", myOrders);
-            return "myOrder";
+            return "myorders";
 
         }else {
             return "redirect:/shop";

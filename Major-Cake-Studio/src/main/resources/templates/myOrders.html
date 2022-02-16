@@ -1,128 +1,69 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-    <title>Shoping Cart</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="images/icons/favicon.png"/>
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="fonts/linearicons-v1.0.0/icon-font.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="css/util.css">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-    <!--===============================================================================================-->
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+
+    <title>Checkout</title>
+    <style>
+body {
+  background-image: url("/images/menu6.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+</style>
 </head>
-<body class="animsition">
+<body>
 
-<!-- Header -->
-<header class="header-v4">
-    <!-- Header desktop -->
-    <div class="container-menu-desktop">
-        <div class="wrap-menu-desktop how-shadow1">
-            <nav class="limiter-menu-desktop container">
 
-                <!-- Logo desktop -->
-                <a th:href="@{/}" class="logo">
-                    <img  src="images/Black logo - no background.png" height="40" alt="IMG-LOGO">
-                </a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" >
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img th:src="@{/images/cake.jpg}"  src="../static/images/logo.png" width="auto" height="40" class="d-inline-block align-top" alt=""/>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-                <!-- Menu desktop -->
-                <div class="menu-desktop">
-                    <ul class="main-menu">
-                        <li >
-                            <a th:href="@{/}">Home</a>
-                        </li>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto"></ul>
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/}" href="#">home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/myorders}" href="#">MyOrders</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/shop}" href="#">shop</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/login}" href="#">login</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/logout}" href="#">logout</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/cart}" href="#">cart</a>
+                </li>
+                <li class="nav-item active">
+                    <span class="nav-link" th:text="${cartCount}">0</span>
+                </li>
+            </ul>
 
-                        <li >
-                            <a th:href="@{/shop}">Shop</a>
-                        </li>
-                        <li>
-                            <a th:href="@{/cart}">Cart</a>
-                        </li>
-                        <li class="active-menu">
-                            <a th:href="@{/myorders}">My Orders</a>
-                        </li>
-                        <li>
-                            <a sec:authorize="isAuthenticated()" th:href="@{/logout}">Logout</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
         </div>
     </div>
-
-    <!-- Header Mobile -->
-    <div class="wrap-header-mobile">
-        <!-- Logo moblie -->
-        <div class="logo-mobile">
-            <a th:href="@{/}"><img src="images/Black logo - no background.png" height="40" alt="IMG-LOGO"></a>
-        </div>
-        <!-- Button show menu -->
-        <div class="btn-show-menu-mobile hamburger hamburger--squeeze">
-				<span class="hamburger-box">
-					<span class="hamburger-inner"></span>
-				</span>
-        </div>
-    </div>
-
-
-    <!-- Menu Mobile -->
-    <div class="menu-mobile">
-        <ul class="main-menu-m">
-            <li >
-                <a th:href="@{/}">Home</a>
-            </li>
-
-            <li >
-                <a th:href="@{/shop}">Shop</a>
-            </li>
-            <li>
-                <a th:href="@{/cart}">cart</a>
-            </li>
-            <li>
-                <a th:href="@{/myorders}">My Orders</a>
-            </li>
-            <li>
-                <a sec:authorize="isAuthenticated()" th:href="@{/logout}">Logout</a>
-            </li>
-        </ul>
-    </div>
-</header>
-
-<!-- breadcrumb -->
-<div class="container">
-    <div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
-        <span class="stext-109 cl4">
-				Order History
-			</span>
-    </div>
-</div>
-<!-- Shoping Cart -->
-
+</nav>
 
 <div class="container">
     <div class="row overflow-container" >
-        <!--        <div class="mt-5 text-center border-bottom">-->
-        <!--            <h3 th:text="${username}"></h3>-->
-        <!--        </div>-->
         <table class="table table-striped table-hover mt-4">
             <thead>
             <tr>
